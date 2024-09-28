@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Inter as FontSans } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
+import SessionProvider from "@/providers/SessionProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,15 +34,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
+      <SessionProvider>
+        <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
             fontSans.variable
           )}
-      >
-        {children}
-        <Toaster richColors duration={5000} />
-      </body>
+        >
+          {children}
+          <Toaster richColors duration={5000} />
+        </body>
+      </SessionProvider>
     </html>
   );
 }
