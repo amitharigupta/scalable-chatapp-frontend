@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 
 import {
   Dialog,
@@ -14,9 +14,9 @@ import { signIn } from "next-auth/react"
 
 export default function LoginModal() {
 
-  const handleLogin = () => {
+  const handleGoogleLogin = () => {
     signIn("google", {
-      callbackUrl: "/dashboard",
+      callbackUrl: "/",
       redirect: true
     })
   }
@@ -33,8 +33,8 @@ export default function LoginModal() {
             Quickchat makes it effortless to create secure create secure chat links and start conversations in seconds.
           </DialogDescription>
         </DialogHeader>
-        <Button variant={"outline"} onClick={handleLogin}>
-            <Image src="/images/google.png" className={"mr-4"} width={25} alt="google_logo" height={"500"} /> Continue with Google
+        <Button variant={"outline"} onClick={handleGoogleLogin}>
+            <Image src="/images/google.png" className={"mr-4"} width={25} alt="google_logo" height={25} /> Continue with Google
         </Button>
       </DialogContent>
     </Dialog>
