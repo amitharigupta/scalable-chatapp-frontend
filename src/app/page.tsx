@@ -6,9 +6,13 @@ import UserReviews from "@/components/base/UserReviews";
 import Footer from "@/components/base/Footer";
 import { authOptions, CustomSession } from "./api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth";
+import { fetchChatGroup } from "@/fetch/groupFetch";
 
 export default async function Home() {
   const session:CustomSession | null = await getServerSession(authOptions);
+  const groups: Array<GroupChatType> | [] = await fetchChatGroup(session?.user?.token!);
+
+  console.log("The groups are : ", groups);
   return (
     <div className="min-h-screen flex flex-col ">
        {/* Header */}
