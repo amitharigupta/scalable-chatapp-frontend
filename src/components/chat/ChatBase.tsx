@@ -22,13 +22,15 @@ const ChatBase = () => {
   }, []);
 
   const handleClick = () => {
-    console.log('Handle Button clicked');
-    socket.emit("message", { name: "Amit", id: uuidV4()})
-  }
+    console.log("Handle Button clicked");
+    socket.emit("message", { name: "Amit", id: uuidV4() });
+  };
 
-  return <div>
-    <Button onClick={handleClick}>Send Message</Button>
-  </div>;
+  return (
+    <div>
+      <Button onClick={handleClick}>Send Message</Button>
+    </div>
+  );
 };
 
 export default ChatBase;

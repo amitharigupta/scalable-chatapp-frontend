@@ -37,6 +37,7 @@ export default function CreateChat({ user }: { user: CustomUser }) {
     // console.log("The payload is", payload);
     try {
       setLoading(true);
+      console.log('CHAT_GROUP_URL ', CHAT_GROUP_URL, payload, user);
       const { data } = await axios.post(CHAT_GROUP_URL, payload, {
         headers: {
           Authorization: user.token,

@@ -38,12 +38,14 @@ export const authOptions: AuthOptions = {
           image: user?.image,
         };
 
-        console.log('payload', LOGIN_URL, payload);
+        // console.log('payload', LOGIN_URL, payload);
         const { data } = await axios.post(LOGIN_URL, payload);
-        console.log(data);
+        // console.log(data);
 
-        user.id = data?.user?.id?.toString();
-        user.token = data?.user?.token;
+        user.id = data?.data?.user?.id?.toString();
+        user.token = data?.data?.user?.token;
+
+        // console.log('user dataa : ', user);
         return true;
       } catch (error) {
         if (error instanceof AxiosError) {
