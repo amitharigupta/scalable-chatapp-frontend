@@ -12,7 +12,8 @@ export async function fetchChatGroup (token: string){
     });
 
     if(!res.ok) {
-        throw new Error(`Failed to fetch chat group: ${res.status}`);
+        // throw `Failed to fetch chat group: ${res.status}`;
+        // throw new Error("Failed to fetch data");
     }
 
     const response = await res.json();
